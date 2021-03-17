@@ -1,5 +1,5 @@
 /module-info.class
-/UI/
-/Controllers/
-/Model/
-/DB/
+/controller/
+/db/
+/model/
+/test/
