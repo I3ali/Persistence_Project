@@ -12,11 +12,11 @@ public class Product{
 	private String productType;
 	
 	public Product (int id, String name, String countryOfOrigin, int stock, int minStock, String productType) {
-		this.id = id;
-		this.name = name;
-		this.countryOfOrigin = countryOfOrigin;
+		this.setId(id);
+		this.setName(name);
+		this.setCountryOfOrigin(countryOfOrigin);
 		this.setStock(stock);
-		this.minStock = minStock;
+		this.setMinStock(minStock);
 		this.setProductType(productType);
 	}
 
@@ -76,7 +76,7 @@ public class Product{
 		this.minStock = minStock;
 	}
 
-	public Integer getId(){
+	public int getId(){
 		return id;
 	}
 	

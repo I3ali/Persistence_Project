@@ -18,4 +18,6 @@ public interface ProductDBIF {
 	 List<Product> findByName(String name) throws SQLException;
 	 
 	 List<Product> getAll() throws SQLException;
+
+	float getPriceById(int id) throws SQLException;
 }

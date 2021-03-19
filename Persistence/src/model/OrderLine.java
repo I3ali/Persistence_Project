@@ -1,41 +1,40 @@
 package model;
 
+import model.Product;
+import model.SaleOrder;
+
 public class OrderLine {
 	private int quantity;
-	private int Product;
+	private int productId;
+	private int saleOrderId;
 	
-	public OrderLine (int quantity, int Product) {
-		this.quantity = quantity;
-		this.Product = Product;
+	public OrderLine (int quantity, int productId, int saleOrderId) {
+		this.setSaleOrderId(saleOrderId);
+		this.setProductId(productId);
+		this.setQuantity(quantity);
 	}
 
-	/**
-	 * @return the quantity
-	 */
+	public int getSaleOrderId() {
+		return saleOrderId;
+	}
+
+	public void setSaleOrderId(int saleOrderId) {
+		this.saleOrderId = saleOrderId;
+	}
+	
 	public int getQuantity() {
 		return quantity;
 	}
 
-	/**
-	 * @param quantity the quantity to set
-	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
-	/**
-	 * @return the product
-	 */
-	public int getProduct() {
-		return Product;
+	public int getProductId() {
+		return productId;
 	}
 
-	/**
-	 * @param product the product to set
-	 */
-	public void setProduct(int product) {
-		Product = product;
-	}
-	
-	
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}	
 }

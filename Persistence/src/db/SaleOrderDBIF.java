@@ -13,9 +13,9 @@ public interface SaleOrderDBIF {
 	 
 	 boolean delete(int id) throws SQLException;
 	 
-	 SaleOrder findById(int id) throws SQLException;
-	 
+//	 SaleOrder findById(int id) throws SQLException;
+//	 
 	 //List<SaleOrder> findByName(String email) throws SQLException;
 	 
-	 List<SaleOrder> getAll() throws SQLException;
+//	 List<SaleOrder> getAll() throws SQLException;
 }

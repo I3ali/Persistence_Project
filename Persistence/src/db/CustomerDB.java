@@ -23,9 +23,8 @@ public class CustomerDB implements CustomerDBIF {
 	}
 	
 	public Customer create(Customer customer) throws SQLException {
-		String sql = String.format("insert into Customer (id, fname, lname, email, address, phoneno) values ('%s', '%s', '%s', '%s', '%s', '%s')", customer.getId(), customer.getFname(), customer.getLname(), customer.getEmail(), customer.getAddress(), customer.getPhoneNumber());
-		int id = DBConnection.getInstance().executeUpdate(sql);
-		customer.setId(id);
+		String sql = String.format("insert into Customer (fname, lname, email, address, phoneno, city_zipcode) values ('%s', '%s', '%s', '%s', '%s', '%s')", customer.getFname(), customer.getLname(), customer.getEmail(), customer.getAddress(), customer.getPhoneNumber(), customer.getZipCode());
+		DBConnection.getInstance().executeUpdate(sql);
 		return customer;
 	}
 
@@ -66,7 +65,7 @@ public class CustomerDB implements CustomerDBIF {
 	public List<Customer> findByName(String name) throws SQLException {
 		List<Customer> res = new ArrayList<>();
 		
-		String sql = "select * from Customer where name like '%" + name + "%'";
+		String sql = "select * from Customer where fname like '%" + name + "%'";
 		System.out.println("CustomerDb, Query: " + sql);
 		try(Statement s = DBConnection.getInstance().getDBcon().createStatement()) {
 			ResultSet rs = s.executeQuery(sql);
@@ -89,7 +88,7 @@ public class CustomerDB implements CustomerDBIF {
 
 	private Customer buildObject(ResultSet rs) throws SQLException {
 		Customer b = null;
-		b = new Customer(rs.getInt("id"),rs.getString("fname"),rs.getString("lname"),rs.getString("email"),rs.getString("address"),rs.getString("phoneno") );
+		b = new Customer(rs.getInt("id"),rs.getString("fname"),rs.getString("lname"),rs.getString("email"),rs.getString("address"),rs.getString("phoneno"), rs.getInt("city_zipcode") );
 		return b;
 	}
 }

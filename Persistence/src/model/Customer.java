@@ -7,14 +7,16 @@ public class Customer {
     private String email;
     private String address;
     private String phoneNumber;
+    private int zipCode;
     
-    public Customer (int id, String fname, String lname, String email, String address, String phonenumber) {
-        this.setId(id);
+    public Customer (int id, String fname, String lname, String email, String address, String phoneNumber, int zipCode) {
+		this.setId(id);
 		this.setFname(fname);
     	this.setLname(lname);
         this.setEmail(email);
         this.setAddress(address);
         this.setPhoneNumber(phoneNumber);
+        this.setzipCode(zipCode);
     }
     
 	public String getFname() {
@@ -24,7 +26,7 @@ public class Customer {
     public String getLname() {
 		return lname;
 	}
-
+    
 	public String getEmail() {
 		return email;
 	}
@@ -37,6 +39,9 @@ public class Customer {
 		return phoneNumber;
 	}
 	
+	public int getZipCode() {
+		return zipCode;
+	}
 
 	public void setFname(String fname) {
 		this.fname = fname;
@@ -57,13 +62,16 @@ public class Customer {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	
+	public void setzipCode(int zipCode) {
+		this.zipCode = zipCode;
+	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
-
 }

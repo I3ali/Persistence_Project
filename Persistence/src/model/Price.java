@@ -1,25 +1,25 @@
 package model;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Price {
-	private LocalDateTime startDate;
+	private Timestamp startDate;
 	private double price;
 	private String priceType;
 	private Product product;
 	
-	public Price(LocalDateTime startDate, double price, String priceType, Product product) {
-		this.startDate = startDate;
-		this.price = price;
-		this.priceType = priceType;
-		this.product = product;
+	public Price(Timestamp startDate, double price, String priceType, Product product) {
+		this.setStartDate(startDate);
+		this.setPrice(price);
+		this.setPriceType(priceType);
+		this.setProduct(product);
 	}
 
-	public LocalDateTime getStartDate() {
+	public Timestamp getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDateTime startDate) {
+	public void setStartDate(Timestamp startDate) {
 		this.startDate = startDate;
 	}
 

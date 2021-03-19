@@ -6,66 +6,71 @@ import java.util.List;
 import model.*;
 import db.*;
 
-/**
- * Write a description of class CustomerCtrl here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class CustomerCtrl
-{
+public class CustomerCtrl {
     private CustomerDB customerDb;
 
-    public CustomerCtrl()
-    {
+    public CustomerCtrl() {
         customerDb = new CustomerDB();
     }
-    
-    public boolean addCustomer(int id, String fname, String lname, String email, String address,
-    String phoneNumber) {
- 
-    	//TODO check parameters
+
+    public boolean addCustomer(int id, String fname, String lname, String email, String address, String phoneNumber, int zipcode) {
     	try {
-			customerDb.create(new Customer(id, fname, lname, email, address, phoneNumber));
+			customerDb.create(new Customer(id, fname, lname, email, address, phoneNumber, zipcode));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	return true;
-
     }
     
     public boolean removeCustomer(int id) {
-    	//TODO check parameters 
     	try {
 			customerDb.delete(id);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	return true;
     }
     
     public List<Customer> getAll() {
-        List<Customer> sl = null;
+        List<Customer> cl = null;
         try {
-			sl = customerDb.getAll();
+			cl = customerDb.getAll();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return sl;
+		return cl;
 
     }
 
-    public boolean updateCustomer(int id) {
+    public boolean updateCustomer(int id, Customer newCustomer) {
         try {
-            Customer oldCustomer = customerDb.findById(id);
-			customerDb.update(oldCustomer);
+        	newCustomer.setId(id);
+			customerDb.update(newCustomer);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	return true;
     }
+
+	
+	public boolean findById(int id) {
+        try {
+			customerDb.findById(id);
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+	public List<Customer> findByName(String name) {
+        List<Customer> cl2 = null;
+        try {
+			cl2 = customerDb.findByName(name);
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cl2;
+	}   
 }
